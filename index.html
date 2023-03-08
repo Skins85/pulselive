@@ -4,22 +4,35 @@
         <meta charset="utf-8" />
         <title>Player stats</title>
     </head>
+    <link href="./css/player-stats-card.css" rel="stylesheet" type="text/css">
     <script type="module" src="/main.js"></script>
+
+    <script>
+        function playerSelectChange() {
+            // Capture selected option ID
+            const select = document.getElementById('players__select'),
+                  value = select.options[select.selectedIndex].value;
+
+            // If card ID matches selected option ID, apply class            
+            const allCards = document.querySelectorAll('.card--player-stats')
+            for (const card of allCards) {
+                card.id === `player__${value}` ? card.classList.add('show') : card.classList.remove('show');
+            }
+        }
+    </script>
 
     <body>
         <h1>Players</h1>
-        <div id="players"></ul>
-        <div class="card card--player-stats">
+        <div id="players__list"></ul>
             <label for="players"></label>
-            <select name="players" id="players">
+            <select name="players" id="players__select" onchange="playerSelectChange()">
                 <option value="" selected>Select a player...</option>
-                <option value="2064"></option>
-                <option value="4148"></option>
-                <option value="4246"></option>
-                <option value="4916"></option>
-                <option value="8983"></option>
+                <option value="4916">Toby Alderweireld</option>
+                <option value="4148">Yaya Touré</option>
+                <option value="2064">Wayne Rooney</option>
+                <option value="4246">Per Mertesacker</option>
+                <option value="8983">Riyad Mahrez</option>
             </select>
-            <p id="name"></p>
         </div>
     </body>
 </html>

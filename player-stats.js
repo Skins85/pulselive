@@ -1,6 +1,6 @@
 export default function renderPlayerCard(url) {
 
-    const ul = document.getElementById('players');
+    const ul = document.getElementById('players__list');
     
     fetch(url)
         .then((response) => {
@@ -11,7 +11,7 @@ export default function renderPlayerCard(url) {
             
             players.map(function(p) {
                 const stats = p.stats;
-                console.log(p);
+                // console.log(p);
 
                 // Create elements
                 const card = document.createElement('div'),
@@ -24,8 +24,9 @@ export default function renderPlayerCard(url) {
 
                 // Apply attributes to created elements
                 card.setAttribute('class', 'card card--player-stats');
+                card.setAttribute('id', `player__${p.player.id}`);
                 select.setAttribute('name', 'players');
-                select.setAttribute('id', 'select_players')
+                select.setAttribute('id', 'select_players');
 
                 // Create HTML for relevant piece of data
                 function createMarkUp(arr, id, tag, label) {
