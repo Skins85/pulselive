@@ -1,5 +1,63 @@
-body {
-  background-color: red;
+.card--player-stats {
+  margin: auto;
+  width: 300px;
+}
+
+.player-stat__container {
+  display: none;
+  /*** START: Club logo sprite positioning ***/
+  /*** END: Club logo sprite positioning ***/
+}
+.player-stat__container.show {
+  display: block;
+}
+.player-stat__container .logo__club {
+  width: 100px;
+  height: 100px;
+}
+.player-stat__container #club_1 {
+  background: url("../public/assets/images/logos/badges_sprite.png") -100px -100px no-repeat;
+}
+.player-stat__container #club_26 {
+  background: url("../public/assets/images/logos/badges_sprite.png") 0 0 no-repeat;
+}
+.player-stat__container #club_11 {
+  background: url("../public/assets/images/logos/badges_sprite.png") -800px -700px no-repeat;
+}
+.player-stat__container #club_12 {
+  background: url("../public/assets/images/logos/badges_sprite.png") -600px -800px no-repeat;
+}
+.player-stat__container #club_21 {
+  background: url("../public/assets/images/logos/badges_sprite.png") -500px -1000px no-repeat;
+}
+.player-stat__container .player-stat__img {
+  position: relative;
+  background-image: url("../public/assets/images/shapes/rectangles_grey_arc.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  padding: 1rem 1rem 0;
+}
+.player-stat__container .wrap--logo__club {
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  background: white;
+  padding: 10px;
+  border-radius: 90%;
+  margin-right: 1rem;
+}
+.player-stat__container .logo__club {
+  position: relative;
+  border-radius: 90%;
+}
+.player-stat__container .player-stat__content {
+  background-color: #EB024F;
+  color: white;
+  padding: 1rem;
+}
+.player-stat__container .player-stat__content h2 {
+  margin-top: 0;
+  width: 60%;
 }
 
 /*# sourceMappingURL=player-stats-card.css.map */

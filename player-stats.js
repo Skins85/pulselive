@@ -7,11 +7,12 @@ export default function renderPlayerCard(url) {
             return response.json();
         })
         .then((data) => {
-            let players = data.players;
+            let players = data.players,
+                cards = [];
             
             players.map(function(p) {
                 const stats = p.stats;
-                // console.log(p);
+                console.log(p);
 
                 // Create elements
                 const card = document.createElement('div'),
@@ -20,13 +21,26 @@ export default function renderPlayerCard(url) {
                       goalsPerMatch = document.createElement('p'),
                       passesPerMinute = document.createElement('p'),
                       select = document.createElement('select'),
-                      option = document.createElement('option');
-
+                      imgPlayer = document.createElement('img'),
+                      imgLogoClub = document.createElement('div'),
+                      imgLogoClubWrap = document.createElement('div'),
+                      imgContainer = document.createElement('div'),
+                      contentContainer = document.createElement('div');
+                
                 // Apply attributes to created elements
-                card.setAttribute('class', 'card card--player-stats');
+                card.setAttribute('class', 'player-stat__container');
                 card.setAttribute('id', `player__${p.player.id}`);
                 select.setAttribute('name', 'players');
                 select.setAttribute('id', 'select_players');
+                imgPlayer.setAttribute('src', `./public/assets/images/players/p${p.player.id}.png`);
+                imgLogoClub.setAttribute('class', `logo__club`);
+                imgLogoClub.setAttribute('id', `club_${p.player.currentTeam.id}`);
+                imgLogoClubWrap.classList.add('wrap--logo__club');
+                imgContainer.classList.add('player-stat__img');
+                contentContainer.classList.add('player-stat__content');
+
+                // Push all cards to an array; this is needed later to show the first player card on page load
+                cards.push(card);
 
                 // Create HTML for relevant piece of data
                 function createMarkUp(arr, id, tag, label) {
@@ -102,12 +116,18 @@ export default function renderPlayerCard(url) {
                 // Append text nodes
                 name.appendChild(nameTextNode);
                 position.appendChild(positionTextNode);
+                imgLogoClubWrap.appendChild(imgLogoClub);
 
-                card.append(...[name, position, appearances, goals, assists, goalsPerMatch, passesPerMinute])
+                imgContainer.append(...[imgPlayer, imgLogoClubWrap])
+                contentContainer.append(...[name, position, appearances, goals, assists, goalsPerMatch, passesPerMinute])
+                card.append(...[imgContainer, contentContainer]);
 
-                ul.appendChild(...[card]);
+                ul.appendChild(card);
                 
             })
+
+            // Make first card visible by default
+            cards[0].classList.add('show');
 
     })
     .catch(function(error) {

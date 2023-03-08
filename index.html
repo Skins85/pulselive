@@ -14,7 +14,7 @@
                   value = select.options[select.selectedIndex].value;
 
             // If card ID matches selected option ID, apply class            
-            const allCards = document.querySelectorAll('.card--player-stats')
+            const allCards = document.querySelectorAll('.player-stat__container')
             for (const card of allCards) {
                 card.id === `player__${value}` ? card.classList.add('show') : card.classList.remove('show');
             }
@@ -23,7 +23,7 @@
 
     <body>
         <h1>Players</h1>
-        <div id="players__list"></ul>
+        <div class="card card--player-stats"></ul>
             <label for="players"></label>
             <select name="players" id="players__select" onchange="playerSelectChange()">
                 <option value="" selected>Select a player...</option>
@@ -33,6 +33,7 @@
                 <option value="4246">Per Mertesacker</option>
                 <option value="8983">Riyad Mahrez</option>
             </select>
+            <div id="players__list"></div>
         </div>
     </body>
 </html>
