@@ -1,4 +1,8 @@
 @charset "UTF-8";
+.screen-reader-only {
+  display: none;
+}
+
 .card--player-stats {
   margin: auto;
   width: 300px;

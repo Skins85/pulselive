@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-    <html>
+    <html lang="en">
         <head>
         <meta charset="utf-8" />
         <title>Player stats</title>
@@ -14,9 +14,12 @@
                   value = select.options[select.selectedIndex].value;
 
             // If card ID matches selected option ID, apply class            
-            const allCards = document.querySelectorAll('.player-stat__container')
-            for (const card of allCards) {
-                card.id === `player__${value}` ? card.classList.add('show') : card.classList.remove('show');
+            const allCards = document.querySelectorAll('.player-stat__container');
+
+            if (value !== 'placeholder') {
+                for (const card of allCards) {
+                    card.id === `player__${value}` ? card.classList.add('show') : card.classList.remove('show');
+                }
             }
         }
     </script>
@@ -24,15 +27,17 @@
     <body>
         <h1>Players</h1>
         <div class="card card--player-stats"></ul>
-            <label for="players"></label>
-            <select name="players" id="players__select" onchange="playerSelectChange()">
-                <!-- <option value="" selected>Select a player...</option>
-                <option value="4916">Toby Alderweireld</option>
-                <option value="4148">Yaya Touré</option>
-                <option value="2064">Wayne Rooney</option>
-                <option value="4246">Per Mertesacker</option>
-                <option value="8983">Riyad Mahrez</option> -->
-            </select>
+            <form>
+                <label 
+                    for="players__select"
+                    class="screen-reader-only"
+                >
+                    Select a player
+                </label>
+                <select name="players" id="players__select" onchange="playerSelectChange()">
+                    <option value="placeholder" selected>Select a player...</option>
+                </select>
+            </form>
             <div id="players__list"></div>
         </div>
     </body>

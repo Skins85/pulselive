@@ -1,3 +1,5 @@
+import { checkData, createMarkUpFromFeed, createMarkUpFromValues, positionAssign } from './util.js';
+
 export default function renderPlayerCard(url) {
 
     const playersListContainer = document.getElementById('players__list');
@@ -12,9 +14,10 @@ export default function renderPlayerCard(url) {
                 options = [],
                 optionElements;
 
-                const select = document.createElement('select');
-                select.setAttribute('name', 'players');
-                select.setAttribute('id', 'select_players');
+            // One select element needed; create before data map
+            const select = document.createElement('select');
+            select.setAttribute('name', 'players');
+            select.setAttribute('id', 'select_players');
             
             players.map(function(p) {
                 const stats = p.stats;
@@ -45,6 +48,7 @@ export default function renderPlayerCard(url) {
                 card.setAttribute('class', 'player-stat__container');
                 card.setAttribute('id', `player__${p.player.id}`);
                 imgPlayer.setAttribute('src', `./public/assets/images/players/p${p.player.id}.png`);
+                imgPlayer.setAttribute('alt', `${p.player.name.first} ${p.player.name.last}`);
                 imgLogoClub.setAttribute('class', `logo__club`);
                 imgLogoClub.setAttribute('id', `club_${p.player.currentTeam.id}`);
                 imgLogoClubWrap.classList.add('wrap--logo__club');
@@ -55,48 +59,6 @@ export default function renderPlayerCard(url) {
 
                 // Push all cards to an array; this is needed later to show the first player card on page load
                 cards.push(card);
-
-                /******  START HELPER FUNCTIONS: PERHAPS IMPORT FROM UTIL ******/
-                function createMarkUpFromFeed(arr, id, tag, label) {
-                    const filteredResults = arr.filter(obj => {
-                        return obj.name === id
-                    })
-                    
-                    const el = document.createElement(tag);
-
-                    if (filteredResults.length > 0) {
-                        const spanLabel = document.createElement('span');
-                        spanLabel.append(label);
-                        const spanValue = document.createElement('span');
-                        spanValue.append(filteredResults[0]['value'])
-                        el.append(...[spanLabel, spanValue]);
-                    } else {
-                        el.appendChild(document.createTextNode(`${label} 0`));
-                    }
-                    return el;
-                }
-
-                function createMarkUpFromValues(el, label, value) {
-                    let spanLabel = document.createElement('span');
-                    spanLabel.classList.add('stat__single__left');
-                    spanLabel.append(label);
-                    
-                    let spanValue = document.createElement('span');
-                    spanValue.classList.add('stat__single__right');
-                    spanValue.append(value);
-                    
-                    el.append(...[spanLabel, spanValue]);
-                    return el;
-                }
-
-                function checkData(arr, id) {
-                    const filteredResults = arr.filter(obj => {
-                        return obj.name === id
-                    })
-                    return filteredResults.length > 0 ? true : false;
-                }
-                /******  END HELPER FUNCTIONS: PERHAPS IMPORT FROM UTIL ******/
-
 
                 // Values to be used in arithemtical operation; check to see they exist
                 const goalsExist = checkData(stats, 'goals'),
@@ -120,20 +82,7 @@ export default function renderPlayerCard(url) {
                 }
 
                 // Convert single-letter positions into full word
-                let positionValue;
-                switch(p.player.info.position) {
-                    case 'D':
-                        positionValue = 'Defender';
-                        break;
-                    case 'M':
-                        positionValue = 'Midfielder';
-                        break;
-                    case 'F':
-                        positionValue = 'Forward';
-                        break;
-                    default:
-                        positionValue = 'Goalkeeper';
-                  }
+                let positionValue = positionAssign(p.player.info.position)
 
                 // Create text nodes
                 let nameTextNode = document.createTextNode(`${p.player.name.first} ${p.player.name.last}`),
