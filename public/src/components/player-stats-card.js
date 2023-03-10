@@ -1,4 +1,4 @@
-import { checkData, createMarkUpFromFeed, createMarkUpFromValues, positionAssign } from './util.js';
+import { checkData, createMarkUpFromFeed, createMarkUpFromValues, positionAssign } from '../util.js';
 
 export default function renderPlayerCard(url) {
 
@@ -47,7 +47,7 @@ export default function renderPlayerCard(url) {
                 // Apply attributes to created elements
                 card.setAttribute('class', 'player-stat__container');
                 card.setAttribute('id', `player__${p.player.id}`);
-                imgPlayer.setAttribute('src', `./public/assets/images/players/p${p.player.id}.png`);
+                imgPlayer.setAttribute('src', `./assets/images/players/p${p.player.id}.png`);
                 imgPlayer.setAttribute('alt', `${p.player.name.first} ${p.player.name.last}`);
                 imgLogoClub.setAttribute('class', `logo__club`);
                 imgLogoClub.setAttribute('id', `club_${p.player.currentTeam.id}`);

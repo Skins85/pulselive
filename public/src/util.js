@@ -1,10 +1,27 @@
-export function checkData(arr, id) {
+/**
+ * Check an array of objects with a 'name' key returns a defined value.
+ *
+ * @param {Array} arr - The array of objects.
+ * @param {String} id - The ID to filter on.
+ * @return {Number} - The number of values returned from the filter.
+ **/
+
+ export function checkData(arr, id) {
     const filteredResults = arr.filter(obj => {
         return obj.name === id
     })
     return filteredResults.length > 0 ? true : false;
 }
 
+/**
+ * Create an element with two spans passing after filtering an array of objects.
+ *
+ * @param {Array} arr - The array of objects.
+ * @param {String} id - The ID to filter on.
+ * @param {String} tag - Stringified representation of HTML tag, e.g. 'p'
+ * @param {String} label - The label occupying the first span.
+ * @return {HTML element} - The label and value separated into spans with a wrapping element as defined.
+ **/
 export function createMarkUpFromFeed(arr, id, tag, label) {
     const filteredResults = arr.filter(obj => {
         return obj.name === id
@@ -25,6 +42,14 @@ export function createMarkUpFromFeed(arr, id, tag, label) {
     return el;
 }
 
+/**
+ * Create an element with two spans passing in known values.
+ *
+ * @param {HTML element} el - The HTML element to append to.
+ * @param {String} label - The label occupying the first span.
+ * @param {String} value - The value occupying the first span.
+ * @return {HTML element} - The label and value separated into spans with a wrapping element as defined.
+ **/
 export function createMarkUpFromValues(el, label, value) {
     let spanLabel = document.createElement('span');
     spanLabel.classList.add('stat__single__left');
@@ -38,6 +63,12 @@ export function createMarkUpFromValues(el, label, value) {
     return el;
 }
 
+/**
+ * Transform a position code into a readable word.
+ *
+ * @param {String} positionCode - The player code.
+ * @return {String} - The readable word equivalent of the player code.
+ **/
 export function positionAssign(positionCode) {
     let positionWord;
     switch(positionCode) {

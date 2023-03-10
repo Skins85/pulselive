@@ -3,10 +3,17 @@
   display: none;
 }
 
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+@type Color;
+@type Color;
+@type Color;
+@group abstracts;
 .card--player-stats {
   margin: auto;
   width: 300px;
-  font-family: "Helvetica";
 }
 .card--player-stats h2, .card--player-stats h3 {
   font-weight: 100;
@@ -49,23 +56,23 @@
   height: 100px;
 }
 .player-stat__container #club_1 {
-  background: url("../public/assets/images/logos/badges_sprite.png") -100px -100px no-repeat;
+  background: url("/assets/images/logos/badges_sprite.png") -100px -100px no-repeat;
 }
 .player-stat__container #club_26 {
-  background: url("../public/assets/images/logos/badges_sprite.png") 0 0 no-repeat;
+  background: url("/assets/images/logos/badges_sprite.png") 0 0 no-repeat;
 }
 .player-stat__container #club_11 {
-  background: url("../public/assets/images/logos/badges_sprite.png") -800px -700px no-repeat;
+  background: url("/assets/images/logos/badges_sprite.png") -800px -700px no-repeat;
 }
 .player-stat__container #club_12 {
-  background: url("../public/assets/images/logos/badges_sprite.png") -600px -800px no-repeat;
+  background: url("/assets/images/logos/badges_sprite.png") -600px -800px no-repeat;
 }
 .player-stat__container #club_21 {
-  background: url("../public/assets/images/logos/badges_sprite.png") -500px -1000px no-repeat;
+  background: url("/assets/images/logos/badges_sprite.png") -500px -1000px no-repeat;
 }
 .player-stat__container .player-stat__img {
   position: relative;
-  background-image: url("../public/assets/images/shapes/rectangles_grey_arc.png");
+  background-image: url("/assets/images/shapes/rectangles_grey_arc.png");
   background-repeat: no-repeat;
   background-position: right;
   padding: 1rem 1rem 0;
@@ -109,4 +116,4 @@
   width: 60%;
 }
 
-/*# sourceMappingURL=player-stats-card.css.map */
+/*# sourceMappingURL=main.css.map */
