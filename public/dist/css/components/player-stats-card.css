@@ -1,9 +1,9 @@
 /* Error: Undefined variable.
  *    ,
- * 14 |         background-color: $color-gray50
- *    |                           ^^^^^^^^^^^^^
+ * 55 |         padding: $rem--one $rem--one 0
+ *    |                  ^^^^^^^^^
  *    '
- *   public/src/sass/components/player-stats-card.sass 14:27  root stylesheet */
+ *   public/src/sass/components/player-stats-card.sass 55:18  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -13,5 +13,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a    \2577 \a 14 \2502          background-color: $color-gray50\a    \2502                            ^^^^^^^^^^^^^\a    \2575 \a   public/src/sass/components/player-stats-card.sass 14:27  root stylesheet";
+  content: "Error: Undefined variable.\a    \2577 \a 55 \2502          padding: $rem--one $rem--one 0\a    \2502                   ^^^^^^^^^\a    \2575 \a   public/src/sass/components/player-stats-card.sass 55:18  root stylesheet";
 }

@@ -1,9 +1,9 @@
 /* Error: Undefined variable.
  *   ,
- * 3 |     grid-column-gap: $rem--one
+ * 8 |     grid-column-gap: $rem--one
  *   |                      ^^^^^^^^^
  *   '
- *   public/src/sass/layout/grid.sass 3:22  root stylesheet */
+ *   public/src/sass/layout/grid.sass 8:22  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -13,5 +13,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a   \2577 \a 3 \2502      grid-column-gap: $rem--one\a   \2502                       ^^^^^^^^^\a   \2575 \a   public/src/sass/layout/grid.sass 3:22  root stylesheet";
+  content: "Error: Undefined variable.\a   \2577 \a 8 \2502      grid-column-gap: $rem--one\a   \2502                       ^^^^^^^^^\a   \2575 \a   public/src/sass/layout/grid.sass 8:22  root stylesheet";
 }
