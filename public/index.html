@@ -34,19 +34,21 @@
                     <div class="grid grid--18 wrapper--content">
                         <div class="content">
                             <h1>Players</h1>
-                            <div class="card card--player-stats"></ul>
-                                <form>
-                                    <label 
-                                        for="players__select"
-                                        class="screen-reader-only"
-                                    >
-                                        Select a player
-                                    </label>
-                                    <select name="players" id="players__select" onchange="playerSelectChange()">
-                                        <option value="placeholder" selected>Select a player...</option>
-                                    </select>
-                                </form>
-                                <div id="players__list"></div>
+                            <div class="grid card-container grid--2">
+                                <div class="card card--player-stats"></ul>
+                                    <form>
+                                        <label 
+                                            for="players__select"
+                                            class="screen-reader-only"
+                                        >
+                                            Select a player
+                                        </label>
+                                        <select name="players" id="players__select" onchange="playerSelectChange()">
+                                            <option value="placeholder" selected>Select a player...</option>
+                                        </select>
+                                    </form>
+                                    <div id="players__list"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
