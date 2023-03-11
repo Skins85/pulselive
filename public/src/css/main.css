@@ -1,0 +1,232 @@
+@group base;
+.screen-reader-only {
+  display: none;
+}
+
+@group base;
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  grid-column: 1/-1;
+}
+
+@group abstracts;
+@type Color;
+@type Color;
+@type Color;
+@group abstracts;
+@group layout;
+@group layout;
+.grid {
+  display: block;
+  grid-column-gap: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .grid {
+    display: grid;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .grid--24 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+@media screen and (min-width: 768px) {
+  .grid--24 {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .grid--24 {
+    grid-template-columns: repeat(24, 1fr);
+  }
+}
+
+.grid--18 {
+  grid-template-columns: repeat(6, 1fr);
+}
+@media screen and (min-width: 768px) {
+  .grid--18 {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .grid--18 {
+    grid-template-columns: repeat(18, 1fr);
+  }
+}
+
+.grid--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.wrapper--content {
+  margin: 2rem 0;
+  grid-column: 1/-1;
+  padding: 2rem 0;
+  box-shadow: 3px 4px 21px 7px rgb(204, 204, 204);
+}
+@media screen and (min-width: 1024px) {
+  .wrapper--content {
+    grid-column: 3/-3;
+  }
+}
+
+.content {
+  grid-column: 1/-1;
+}
+@media screen and (min-width: 768px) {
+  .content {
+    grid-column: 2/-2;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .content {
+    grid-column: 3/-3;
+  }
+}
+
+@group components;
+header {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(135deg, rgb(2, 0, 36) 0%, rgb(9, 9, 121) 38%, rgb(0, 212, 255) 100%);
+  min-height: 100px;
+  color: white;
+  position: relative;
+  text-align: center;
+  margin-top: 2rem;
+}
+header h3 {
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  position: absolute;
+  margin: auto;
+  width: 100%;
+}
+
+@group components;
+footer {
+  background: #01010f;
+  min-height: 100px;
+  color: white;
+  position: relative;
+  text-align: center;
+}
+footer h3 {
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  position: absolute;
+  margin: auto;
+  width: 100%;
+}
+
+@group Player stats card;
+.card--player-stats {
+  grid-column: 1/-1;
+  max-width: 350px;
+}
+.card--player-stats h2, .card--player-stats h3 {
+  font-weight: 100;
+}
+
+.player-stat__container {
+  display: none;
+  /*** START: Club logo sprite positioning ***/
+  /*** END: Club logo sprite positioning ***/
+}
+.player-stat__container.show {
+  display: block;
+}
+.player-stat__container .logo__club {
+  width: 100px;
+  height: 100px;
+}
+.player-stat__container #club_1 {
+  background: url("/assets/images/logos/badges_sprite.png") -100px -100px no-repeat;
+}
+.player-stat__container #club_26 {
+  background: url("/assets/images/logos/badges_sprite.png") 0 0 no-repeat;
+}
+.player-stat__container #club_11 {
+  background: url("/assets/images/logos/badges_sprite.png") -800px -700px no-repeat;
+}
+.player-stat__container #club_12 {
+  background: url("/assets/images/logos/badges_sprite.png") -600px -800px no-repeat;
+}
+.player-stat__container #club_21 {
+  background: url("/assets/images/logos/badges_sprite.png") -500px -1000px no-repeat;
+}
+.player-stat__container .player-stat__img {
+  position: relative;
+  background-image: url("/assets/images/shapes/rectangles_grey_arc.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  padding: 1rem 1rem 0;
+}
+.player-stat__container .wrap--logo__club {
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  background: white;
+  padding: 10px;
+  border-radius: 90%;
+  margin-right: 1rem;
+}
+.player-stat__container .logo__club {
+  position: relative;
+  border-radius: 90%;
+}
+.player-stat__container .player-stat__content {
+  background-color: #EB024F;
+  color: white;
+  padding: 1rem;
+  margin-top: -4px;
+}
+.player-stat__container .player-stat__content p {
+  margin: 0.125rem 0;
+  background: #EAEAEA;
+  padding: 0.5rem;
+  color: #2D0832;
+  display: flex;
+}
+.player-stat__container .player-stat__content p span:nth-of-type(1) {
+  flex: 1;
+}
+.player-stat__container .player-stat__content p span:nth-of-type(2) {
+  text-align: right;
+  font-weight: 700;
+  flex: 0;
+}
+.player-stat__container .player-stat__content h2 {
+  margin-top: 0;
+  width: 60%;
+}
+.player-stat__container .player-stat__content__stats {
+  box-shadow: 0px 0px 20px -2px rgb(151, 2, 52);
+}
+
+@group base;
+select {
+  width: 100%;
+  display: block;
+  background-color: #EAEAEA;
+  border: 0;
+  font-size: 1rem;
+  margin: 1rem 1.25rem 1rem 0;
+  padding: 0.5rem 50px 0.5rem 0.5rem;
+  box-sizing: border-box;
+  appearance: none;
+  background-image: url("../../assets/images/shapes/chevron_down.png");
+  background-position: 96% 50%;
+  background-size: 1rem;
+  background-repeat: no-repeat;
+}
+
+/*# sourceMappingURL=main.css.map */
