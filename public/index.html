@@ -25,20 +25,36 @@
     </script>
 
     <body>
-        <h1>Players</h1>
-        <div class="card card--player-stats"></ul>
-            <form>
-                <label 
-                    for="players__select"
-                    class="screen-reader-only"
-                >
-                    Select a player
-                </label>
-                <select name="players" id="players__select" onchange="playerSelectChange()">
-                    <option value="placeholder" selected>Select a player...</option>
-                </select>
-            </form>
-            <div id="players__list"></div>
-        </div>
+        <header>
+            <h3>Header</h3>
+        </header>
+        <main>
+            <article>
+                <div class="grid grid--24">
+                    <div class="grid grid--18 wrapper--content">
+                        <div class="content">
+                            <h1>Players</h1>
+                            <div class="card card--player-stats"></ul>
+                                <form>
+                                    <label 
+                                        for="players__select"
+                                        class="screen-reader-only"
+                                    >
+                                        Select a player
+                                    </label>
+                                    <select name="players" id="players__select" onchange="playerSelectChange()">
+                                        <option value="placeholder" selected>Select a player...</option>
+                                    </select>
+                                </form>
+                                <div id="players__list"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </main>
+        <footer>
+            <h3>Footer</h3>
+        </footer>
     </body>
 </html>
