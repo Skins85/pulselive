@@ -1,4 +1,4 @@
-import { checkData, createMarkUpFromFeed, createMarkUpFromValues, positionAssign } from '../util.js';
+import { checkDataExists, createMarkUpFromFeed, createMarkUpFromValues, positionAssign } from '../util.js';
 
 export default function renderPlayerCard(url) {
 
@@ -21,7 +21,6 @@ export default function renderPlayerCard(url) {
             
             players.map(function(p) {
                 const stats = p.stats;
-                console.log("p");
 
                 // Create elements
                 const card = document.createElement('div'),
@@ -37,7 +36,6 @@ export default function renderPlayerCard(url) {
                       contentContainerIntro = document.createElement('div'),
                       contentContainerStats = document.createElement('div'),
                       option = document.createElement('option');
-
 
                 // Create option elements for player select
                 option.setAttribute('value', `${p.player.id}`);
@@ -61,11 +59,11 @@ export default function renderPlayerCard(url) {
                 cards.push(card);
 
                 // Values to be used in arithemtical operation; check to see they exist
-                const goalsExist = checkData(stats, 'goals'),
-                      appearancesExist = checkData(stats, 'appearances'),
-                      forwardPassesExist = checkData(stats, 'fwd_pass'),
-                      backwardPassesExist = checkData(stats, 'backward_pass'),
-                      minutesPlayedExist = checkData(stats, 'mins_played');
+                const goalsExist = checkDataExists(stats, 'goals'),
+                      appearancesExist = checkDataExists(stats, 'appearances'),
+                      forwardPassesExist = checkDataExists(stats, 'fwd_pass'),
+                      backwardPassesExist = checkDataExists(stats, 'backward_pass'),
+                      minutesPlayedExist = checkDataExists(stats, 'mins_played');
 
                 // Goals per match should only be calculated if both goals and appearances are present
                 if (goalsExist && appearancesExist) {

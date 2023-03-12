@@ -17,6 +17,19 @@ h1 {
 @type Color;
 @type Color;
 @group abstracts;
+@type Length;
+@type Length;
+@type Length;
+@type Length;
+@type Length;
+@type Length;
+@type Length;
+@type Length;
+@type Length;
+noscript {
+  margin: 1rem 0;
+}
+
 @group layout;
 @group layout;
 .grid {
@@ -212,7 +225,7 @@ footer h3 {
   box-shadow: 0px 0px 20px -2px rgb(151, 2, 52);
 }
 
-@group base;
+@group components;
 select {
   width: 100%;
   display: block;
