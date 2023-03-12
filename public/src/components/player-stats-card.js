@@ -21,7 +21,7 @@ export default function renderPlayerCard(url) {
             
             players.map(function(p) {
                 const stats = p.stats;
-                console.log(p);
+                console.log("p");
 
                 // Create elements
                 const card = document.createElement('div'),
